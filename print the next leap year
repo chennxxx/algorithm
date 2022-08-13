@@ -7,3 +7,38 @@ Year: 2024
 The next leap year after 2024 is 2028
 
 solution
+
+year = int(input('Year: '))
+atp = 0
+while True:
+    #year_new = year
+    if year%4 != 0:   #not a leap year
+        year += 1
+        atp += 1
+    if year%4 == 0 :  # might be a leap year
+        if year%100 == 0:
+            if year%400 == 0:  # a lear year
+                break
+            else:             # not a leap year
+                year += 1
+                atp += 1
+        else:       # a leap year
+            break
+
+# print(year)
+# print(year+4)
+# print(year+8)
+# print(year-atp)
+# print(atp)
+
+
+if atp == 0:
+    if (year+4)%100 == 0:
+        if (year+4)%400 == 0:
+            print(f'The next leap year after {year} is {year+4}')
+        else:
+            print(f'The next leap year after {year} is {year+8}')
+    else:
+        print(f'The next leap year after {year} is {year+4}')
+else:
+    print(f'The next leap year after {year-atp} is {year}')
